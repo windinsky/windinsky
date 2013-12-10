@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include <fstream>
 // #include <dir.h>
 #include "mysql/mysql.h"
 
@@ -28,39 +29,24 @@ int GetCurrentVersion()
 
 bool GetSQL(stringVec& sqls)
 {
-	if (FILE *fp = fopen("config/sql.in", "r"))
+	ifstream file;
+	file.open("config/sql.in");
+	string buffer = "";
+	string line = "";
+	while(getline(file,line))
 	{
-		string buffer = "";
-		char buf[1];
-		bool _break = false;
-		while (size_t len = fread(buf, 1, sizeof(buf), fp))
+		// cout << line << endl;
+		if (line == "")
 		{
-			
-			if (strcmp(buf,"\n") == 0)
-			{
-				// cout << "\\n"<<endl;
-				if (_break)
-				{
-					sqls.insert(sqls.end(),buffer);
-					_break = false;
-				}
-				else
-				{
-					_break = true;
-				}
-			}
-			else
-			{
-				// cout << buf << endl;
-				_break = false;
-				buffer += buf;
-			}
+			sqls.push_back(buffer);
 		}
-		sqls.insert(sqls.end(),buffer);
-		fclose(fp);
-		return true;
+		else
+		{
+			buffer += line;
+		}
 	}
-	return false;
+	sqls.push_back(buffer);
+	return sqls.size() ? true : false;
 }
 
 // string readFile(fileName)
@@ -95,7 +81,6 @@ int main()
 	}
 	mysql_close(&mysql);
 
-	
 	return 0;
 }
 
