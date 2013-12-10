@@ -1,0 +1,13 @@
+<% include header.html %>
+	<script type="text/html" id="test_render">
+		<div class="123"><?= hengheng ?></div>
+		<? if(h){ ?>
+			<?= a ?>
+		<? }else{ ?>
+			<?= b ?>
+		<?}?>
+	</script>
+	<% var delayScript=
+		"windinsky.use('index');"
+	;%>
+<% include footer.html %>

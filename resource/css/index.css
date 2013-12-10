@@ -1,0 +1,29 @@
+p,
+ul,
+li,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 12px;
+  font-family: arial;
+}
+.__container {
+  width: 1080px;
+  margin: auto;
+  height: 300px;
+  color: white;
+  background: #fcf2e5;
+}
+.head {
+  background: #38291a;
+  height: 83px;
+}
+.head span {
+  height: 30px;
+  line-height: 30px;
+}
+body {
+  background: #333333;
+}

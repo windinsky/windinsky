@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS users(
+id INTEGER(10) AUTO_INCREMENT,
+account VARCHAR(255),
+password TEXT,
+created_at TIMESTAMP NOT NULL DEFAULT now(),
+updated_at DATETIME NOT NULL,
+PRIMARY KEY (id)
+) DEFAULT CHARSET utf8 COLLATE utf8_general_ci;

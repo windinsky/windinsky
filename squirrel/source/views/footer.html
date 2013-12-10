@@ -1,0 +1,15 @@
+	</div>
+	<!--[if IE 8]>
+	<%if(debug){%><script src="<%= JS_PATH %>lib/ie8/JSON.js"></script>
+	<script src="<%= JS_PATH %>lib/ie8/Array.js"></script><%}else{%><script src="<%= JS_PATH %>lib/ie8/ie8.js"></script><%}%>
+	<![endif]-->
+	<script src="<%= JS_PATH %>lib/EventEmitter.js"></script>
+	<script src="<%= JS_PATH %>lib/windinsky.js"></script>
+	<script>
+	windinsky.cfg = {
+		JS_PATH: "<%= JS_PATH %>"
+	};
+	</script>
+	<script><%=delayScript%></script>
+</body>
+</html>
